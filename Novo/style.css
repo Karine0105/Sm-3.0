@@ -1,0 +1,269 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('./Img/download.jpg') no-repeat center center/cover;
+  background-size: cover; /* garante que a imagem cubra toda a tela */
+  color: white;
+  overflow: hidden;
+}
+
+/* --- CONTAINER --- */
+.container {
+  display: flex;
+  height: 100vh;
+  position: relative;
+}
+
+/* --- SIDEBAR (Histórico) --- */
+.sidebar {
+  width: 0;
+  max-width: 250px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 50, 0.9);
+  transition: width 0.4s ease, opacity 0.4s ease, padding 0.4s ease; /* animação suave do slide */
+  overflow-y: auto;
+  padding: 0 15px; /* padding horizontal apenas quando fechada */
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  z-index: 10; /* garante que fique acima do chat */
+}
+
+.sidebar.active {
+  width: 250px;
+  opacity: 1;
+  pointer-events: all;
+  padding: 15px; /* padding completo quando aberta */
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Botão limpar histórico */
+.limpar {
+  background-color: #00bfff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+  transition: background 0.2s ease-in-out;
+}
+
+.limpar:hover {
+  background-color: #008ccc;
+}
+
+/* Botão fechar sidebar */
+.fechar {
+  background-color: #ff5555;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  display: block;
+  margin: 10px auto;
+  transition: background 0.2s ease-in-out;
+}
+
+.fechar:hover {
+  background-color: #ff7777;
+}
+
+/* --- BOTÃO HISTÓRICO --- */
+#historicoBtn {
+  background-color: #0077ff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: background 0.2s ease-in-out;
+}
+
+#historicoBtn:hover {
+  background-color: #0099ff;
+}
+
+/* --- CHAT --- */
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(4px);
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  transition: margin-left 0.4s ease; /* para empurrar chat quando sidebar abre */
+}
+
+/* --- HEADER --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tema {
+  background-color: #0077ff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+}
+
+/* --- ÁREA CENTRAL COM EVA E CHAT --- */
+.chat-area {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px;
+}
+
+.eva-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eva-img {
+  width: 150px;
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.eva-nome {
+  color: cyan;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* --- BALÕES DE CONVERSA --- */
+.messages {
+  width: 60%;
+  height: 70%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 30, 0.6);
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  position: relative;
+}
+
+/* EVA (lado esquerdo) */
+.bot {
+  background-color: #0f85ff;
+  align-self: flex-start;
+  border-top-left-radius: 0;
+}
+
+/* Usuário (lado direito) */
+.user {
+  background-color: #3a3aff;
+  align-self: flex-end;
+  border-top-right-radius: 0;
+  text-align: right;
+}
+
+/* --- ÁREA DE ENTRADA --- */
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 30, 0.7);
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  margin-left: 10px;
+}
+
+.input-area button {
+  margin-left: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00bfff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.input-area button:hover {
+  background-color: #008ccc;
+}
+
+/* --- BOTÃO DE MICROFONE --- */
+.microfone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./Img/mic.png');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 25px;
+  padding-left: 40px;
+  background-color: #0077ff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* --- POPUP DE LOGIN --- */
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,50,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.popup-content {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}

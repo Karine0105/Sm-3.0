@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat EVA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- HISTÓRICO -->
+    <div class="sidebar" id="sidebar">
+      <h2>Histórico</h2>
+      <button id="limpar" class="limpar">Limpar</button>
+      <div id="historico"></div>
+    </div>
+
+    <!-- CHAT -->
+    <div class="chat">
+      <div class="header">
+        <h2>EVA</h2>
+        <div class="user-info">
+          <span id="usuarioNome"></span>
+          <button id="temaBtn" class="tema">Tema</button>
+        </div>
+      </div>
+
+      <div class="chat-area">
+        <div class="eva-box">
+          <img src="https://i.postimg.cc/Df9Cg6F6/eva.png" alt="EVA" class="eva-img" />
+          <h3 class="eva-nome">EVA</h3>
+        </div>
+        <div class="messages" id="messages"></div>
+      </div>
+
+      <div class="input-area">
+        <button id="falarBtn" class="microfone">🎤 Fale com a EVA</button>
+        <input type="text" id="msgInput" placeholder="Digite sua mensagem..." />
+        <button id="enviarBtn">Enviar</button>
+        <button id="aMais">A+</button>
+        <button id="aMenos">A-</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP DE LOGIN -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3>Digite seu nome para entrar</h3>
+      <input type="text" id="nomeInput" placeholder="Seu nome" />
+      <button id="entrarBtn">Entrar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
